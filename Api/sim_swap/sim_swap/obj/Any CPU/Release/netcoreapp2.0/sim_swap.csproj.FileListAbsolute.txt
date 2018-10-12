@@ -1,0 +1,10 @@
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\bin\Any CPU\Release\netcoreapp2.0\sim_swap.deps.json
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\bin\Any CPU\Release\netcoreapp2.0\sim_swap.runtimeconfig.json
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\bin\Any CPU\Release\netcoreapp2.0\sim_swap.runtimeconfig.dev.json
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\bin\Any CPU\Release\netcoreapp2.0\sim_swap.dll
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\bin\Any CPU\Release\netcoreapp2.0\sim_swap.pdb
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\obj\Any CPU\Release\netcoreapp2.0\sim_swap.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\obj\Any CPU\Release\netcoreapp2.0\sim_swap.AssemblyInfoInputs.cache
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\obj\Any CPU\Release\netcoreapp2.0\sim_swap.AssemblyInfo.cs
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\obj\Any CPU\Release\netcoreapp2.0\sim_swap.dll
+C:\Users\lenovo\Documents\yusuf_official\sim_swap\sim_swap\sim_swap\obj\Any CPU\Release\netcoreapp2.0\sim_swap.pdb

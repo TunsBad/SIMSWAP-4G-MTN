@@ -1,0 +1,57 @@
+﻿@model simswap_portal.Models.Threshold
+
+@{
+    Layout = "~/Views/Shared/_TemplateLayout.cshtml";
+    ViewBag.Title = "Threshold";
+}
+
+<div id="form-container" style="position: relative; width:100%">
+<div class="jumbotron" style="text-align:center">
+    <p style="font-size:38px"><strong>MOMO THRESHOLD</strong></p>
+</div>
+<br />
+
+<div class="row">
+
+    <div class="col-md-12">
+
+
+        <div class="col-md-12" style="text-align:center">
+            <br />
+            <br />
+            <br />
+            <br />
+            <p style="font-size:23px"><strong>Current Threshold:</strong>&nbsp;&nbsp;&nbsp;<span style="padding:18px; border:2px solid; font-size:40px">@ViewBag.threshold</span>&nbsp;&nbsp;<strong style="font-size:30px">GHS</strong></p>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+
+        <div class="col-md-12">
+            <h2>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>&nbsp;&nbsp;<strong>Update Threshold&nbsp;</strong></h2>
+            <hr><br>
+        </div>
+
+        <div class="col-md-12">
+            <div class="">
+                <div style="text-align:center">
+                    <label style="font-size:20px">New Threshold:&nbsp;&nbsp;</label>
+                    <input name="thresholdBox" id="thresholdBox" type="text" />&nbsp;&nbsp;
+                    <button name="updatethreshold" id="updatethreshold" class="btn btn-primary">&nbsp;Enter&nbsp;</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<span id="popupNotification"></span>
+
+
+</div>
+@section scripts {
+    <script src="~/Scripts/app/threshold.js"></script>
+}

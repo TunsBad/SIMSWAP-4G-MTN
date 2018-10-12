@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_TemplateLayout.cshtml";
+    ViewBag.Title = "Edit Request";
+}
+
+<br><br>
+
+<div>
+    <div class="col-md-12" style="text-align: center;">
+        <div style=""><h2>Details for: &nbsp;@ViewBag.Msisdn, &nbsp;&nbsp;Submitted on: &nbsp;@ViewBag.DateSubmitted</h2></div>
+        <br><br>
+        <form class="ui form">
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>PHONE NUMBER</label>
+                        <input type="text" id="phonenumber" placeholder="PHONE NUMBER">
+                    </div>
+                    <div class="field">
+                        <label>SERIAL NUMBER</label>
+                        <input type="text" id="serialnumber" placeholder="SERIAL NUMBER">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>ID NUMBER</label>
+                        <input type="text" placeholder="ID NUMBER" id="idnumber">
+                    </div>
+                    <div class="field">
+                        <label>ID TYPE</label>
+                        <input type="text" placeholder="ID TYPE" id="idtype">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="field">
+                    <label>REASON</label>
+                    <textarea type="text" placeholder="REASON FOR SIM SWAP REQUEST" id="reason" rows="3"></textarea>
+                </div>
+            </div>
+
+
+            <div class="field">
+                <div class="field">
+                    <label>COMMENT</label>
+                    <textarea type="text" placeholder="COMMENTS SUBMITTED BY AGENT" id="comment" rows="3"></textarea>
+                </div>
+            </div>
+
+            <button id="submitChanges" type="button" class="btn btn-primary">&nbsp;Submit&nbsp;</button>
+
+        </form>
+    </div>
+
+    <span id="popupNotification"></span>
+</div>
+
+
+
+<script>
+    var msisdn = '@ViewBag.Msisdn';
+    var id = '@ViewBag.Id';
+</script>
+
+<script src="~/Scripts/app/editrequest.js"></script>
+

@@ -1,0 +1,165 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Request Details";
+}
+
+<br><br>
+
+<style>
+    .leftSpace {
+        padding-left: 5px;
+    }
+</style>
+
+<div class="container" style="margin-right: 30px; margin-top: 75px; ">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="ui top attached pointing menu">
+                <a class="header active item" data-tab="first">REQUEST INFO</a>
+                <a class="header item" data-tab="second">REQUEST LOCATION</a>
+                <a class="header item" data-tab="third">REQUESTER PHOTO</a>
+                <a class="header item" data-tab="fourth">ID CARD PHOTO</a>
+                <a class="header item" data-tab="fifth">HISTORY</a>
+            </div>
+            <div class="ui bottom attached tab segment active" data-tab="first" style="position: relative;">
+                <div class="row">
+                    <div class="col-md-12"><br></div>
+                    <div class="col-md-4">
+                        <a id="mainDp" style="text-align: center">
+                            <img id="dp" src="~/Content/Loading_icon.gif" style="width:320px; min-width:200px; height:auto" />
+                        </a>
+                    </div>
+
+                    <div class="col-md-7">
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                PHONE NUMBER
+                            </div>
+                            <div class="col-md-8"><h4 id="phonenumber"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                SERIAL NUMBER
+                            </div>
+                            <div class="col-md-8"><h4 id="serialnumber"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                ID TYPE
+                            </div>
+                            <div class="col-md-8"><h4 id="idtype"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                ID NUMBER
+                            </div>
+                            <div class="col-md-8"><h4 id="idnumber"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                REASON
+                            </div>
+                            <div class="col-md-8"><h4 id="reason"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                COMMENT
+                            </div>
+                            <div class="col-md-8"><h4 id="comment"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                DATE SUBMITTED
+                            </div>
+                            <div class="col-md-8"><h4 id="datesubmitted"></h4></div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-3" style="background-color:#d3d3d3;padding:5px;font-weight:bold;">
+                                STATUS
+                            </div>
+                            <div class="col-md-8"><h4 id="status"></h4></div>
+                        </div>
+
+                        <div class="col-md-12"><br></div>
+                    </div>
+                </div>
+                <div class="col-md-12"><br></div>
+                <div class="col-md-12"><br></div>
+            </div>
+
+            <div class="ui bottom attached tab segment" data-tab="second" style="position: relative;">
+                <div id="map" style="width:100%; height:400px"></div>
+                <div class="col-md-12"><br></div>
+            </div>
+
+            <div class="ui bottom attached tab segment" data-tab="third" style="position: relative;">
+                <a id="uphotoDownload" download="requesterPhoto.png" data-toggle="tooltip" title="Click to Download">
+                    <img id="uphoto" style="min-height:300px; width:100%" src="~/Content/Loading_icon.gif" />
+                </a>
+            </div>
+
+
+            <div class="ui bottom attached tab segment" data-tab="fourth">
+                <a id="iphotoDownload" download="idcardPhoto.png" data-toggle="tooltip" title="Click to Download">
+                    <img id="iphoto" style="min-height:300px; width:100%" src="~/Content/Loading_icon.gif" />
+                </a>
+                <div class="col-md-12"><br></div>
+            </div>
+
+            <div class="ui bottom attached tab segment" data-tab="fifth" style="position: relative;">
+                <div id="historyGrid"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var Id = '@ViewBag.Id';
+    var Msisdn = '@ViewBag.Msisdn';
+</script>
+
+<script src="~/Scripts/app/requestdetails.js"></script>
+<script src="~/Scripts/app/history.js"></script>
+
+<script>
+    $(function () {
+        $('.menu .item').tab();
+    });
+</script>
+
+<script>
+    var map;
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(6.2791126, -10.7627929, 687),
+            // center: new google.maps.LatLng(lat, long),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+
+    function moveToLocation(lat, lng) {
+        var center = new google.maps.LatLng(lat, lng);
+        // using global variable:
+        map.panTo(center);
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map
+        });
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVyxZmKMxiFszSeuZFjbQGrPvck2ZN1MM&callback=myMap"></script>

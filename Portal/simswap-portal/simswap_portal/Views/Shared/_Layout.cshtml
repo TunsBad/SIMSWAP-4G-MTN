@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    @*<link href="~/Content/kendo/styles/kendo.metroblack.min.css" rel="stylesheet" />*@
+    <link href="~/Content/kendo/styles/csi-madina.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    @*<script src="https://kendo.cdn.telerik.com/2017.3.913/js/jszip.min.js"></script>*@
+
+    <script src="~/Content/kendo/js/jszip.min.js"></script>
+    <script src="~/Content/kendo/js/kendo.all.min.js"></script>
+    <script>
+        var apiUrl = '@System.Configuration.ConfigurationManager.AppSettings["API_URL"]';
+        if(apiUrl == ''){
+            apiUrl = 'http://localhost:3704/';
+        };
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/">
+                    <img src="~/Content/MTN-Logo-1024x576.jpg" height="52" width="100" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse hidden-xs hidden-sm">
+                <ul class="nav navbar-nav">
+                    <li class="active"><p style="padding: 10px; font-size: 22px; color: #FFB300;"><strong>SIM SWAP ADMIN PORTAL</strong></p></li>
+                </ul>
+                <div class="nav navbar-nav pull-right">
+                    <button type="button" class="btn btn-warning navbar-btn"><span style="color: black" class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;<b style="color: black">Log Out</b>&nbsp;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div style="margin-top: 70px; " class="serverstats-sidenav">
+
+                    <div style="padding: 10px;">
+                        <a class="appButtonSub" id="appButton" href="/Requests/AllRequests">
+                            All Requests
+                        </a>
+                        <a class="appButtonSub" id="appButton" href="/Requests/FulfilledRequests">
+                            Fulfilled Requests
+                        </a>
+                        <a class="appButtonSub" id="appButton" href="/Requests/PendingRequests">
+                            Pending Requests
+                        </a>
+                    </div>
+
+
+                    <div style="padding: 10px;">
+                        <hr />
+                        <a class="appButtonSub" id="appButton" href="/Users/AllUsers">
+                            Agents
+                        </a>
+                        <a class="appButtonSub" id="appButton" href="/Users/BatchUpload">
+                            Update Agents
+                        </a>
+                    </div>
+
+                    <div style="padding: 10px;">
+                        <hr />
+                        <a class="appButtonSub" id="appButton" href="/HighValueMsisdn/Index">
+                            High Value Customers
+                        </a>
+                        <a class="appButtonSub" id="appButton" href="/HighValueMsisdn/UploadMsisdn">
+                            Update Customers
+                        </a>
+                    </div>
+
+                    <div style="padding: 10px;">
+                        <hr />
+                        <a class="appButtonSub" id="appButton" href="/Threshold/Index">
+                            Threshold
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                @RenderBody()
+            </div>
+        </div>
+        @*<footer style="padding: 10px;">
+                <p style="font-size: 15px;"><b>&copy; @DateTime.Now.Year - My ASP.NET Application</b></p>
+            </footer>*@
+    </div>
+
+    <script>
+        var Api = '@System.Configuration.ConfigurationManager.AppSettings["API_URL"]';
+        if (Api == ''){
+            Api = 'http://localhost:3704/' + 'api/simswap';
+        };
+    </script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

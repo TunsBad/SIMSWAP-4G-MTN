@@ -1,0 +1,16 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_TemplateLayout.cshtml";
+    ViewBag.Title = "Requests Submitted By " + @ViewBag.UserName;
+}
+
+<div id="requestsbyuserGrid"></div>
+
+<script>
+    var userid = '@ViewBag.UserId';
+</script>
+
+
+@section scripts {
+    <script src="~/Scripts/app/requestsbyuser.js"></script>
+}

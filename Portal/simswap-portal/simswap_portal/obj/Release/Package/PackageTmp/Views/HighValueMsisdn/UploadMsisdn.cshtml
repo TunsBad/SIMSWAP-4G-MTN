@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_TemplateLayout.cshtml";
+    ViewBag.Title = "Upload High Value Subscribers";
+}
+
+<div class="col-xs-12">
+    <h3><span class="glyphicon glyphicon-upload" aria-hidden="true"></span>&nbsp;&nbsp;<strong>File Upload&nbsp;(.xlsx)</strong></h3>
+    <hr><br><br>
+</div>
+
+<div class="col-md-12">
+    <div class="k-content">
+        <input name="uploadBatch" id="uploadBatch" type="file" />
+    </div>
+    <br><br><br><br><br>
+</div>
+
+<div class="col-xs-12">
+    <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;<strong>Check Subscriber&nbsp;</strong></h3>
+    <hr><br>
+</div>
+
+<div class="col-md-12">
+    <div class="">
+        <label>Enter Msisdn:&nbsp;&nbsp;</label>
+        <input name="msisdnBox" id="msisdnBox" type="text" />&nbsp;&nbsp;
+        <button name="checkMsisdn" id="checkMsisdn" class="btn btn-primary">&nbsp;Enter&nbsp;</button>
+    </div>
+</div>
+<span id="popupNotification"></span>
+
+@section scripts {
+    <script src="~/Scripts/app/uploadmsisdn.js"></script>
+}
